@@ -1,16 +1,21 @@
 // Julie Anderson
 // primes.js
 
-var primes = [2];
-var n = 3;
+var primes = [];
+var n = 1;
 
 while (primes.length <=10001){
-    var prime = true;
-    for(i =2; i<n; i++){
-        if( n%i == 0) prime = false;
-    }
-    if (prime) primes.push(n);
+    if (isPrime(n)) primes.push(n);
     n++;
-
 }
 console.log(primes[10000]);
+
+function isPrime(n){
+    var prime = true;
+    if (n == 1) return !prime;
+    if (n == 2) return prime;
+    for(i = 2; i < n; i++){
+        if(n % i == 0) prime = false;
+    }
+    return prime;
+}
